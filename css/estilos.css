@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/* Colores y valores reutilizables de todo el sitio. */
 :root {
   --negro: #080808;
   --negro-suave: #111111;
@@ -12,6 +13,7 @@
   --sombra: 0 18px 45px rgba(0, 0, 0, 0.28);
 }
 
+/* Normalización básica para mantener un modelo de caja consistente. */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -22,6 +24,7 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Estilos generales de la página y fondo principal. */
 body {
   background:
     radial-gradient(circle at 85% 4%, rgba(229, 27, 35, 0.11), transparent 25rem),
@@ -36,6 +39,7 @@ a {
   text-decoration: none;
 }
 
+/* Encabezado fijo con efecto de transparencia y desenfoque. */
 .encabezado {
   background: rgba(8, 8, 8, 0.9);
   border-bottom: 1px solid var(--borde);
@@ -45,6 +49,7 @@ a {
   backdrop-filter: blur(14px);
 }
 
+/* Ancho máximo compartido por la barra de navegación y el contenido. */
 .barra,
 .contenedor {
   margin: 0 auto;
@@ -52,6 +57,7 @@ a {
   width: calc(100% - 3rem);
 }
 
+/* Distribución horizontal de la marca y el menú. */
 .barra {
   align-items: center;
   display: flex;
@@ -59,6 +65,7 @@ a {
   min-height: 76px;
 }
 
+/* Nombre o marca del portafolio. */
 .marca {
   color: var(--blanco);
   font-size: 1.15rem;
@@ -66,18 +73,21 @@ a {
   letter-spacing: 0.04em;
 }
 
+/* Línea decorativa que precede a la marca. */
 .marca::before {
   color: var(--rojo);
   content: "/";
   margin-right: 0.35rem;
 }
 
+/* Enlaces de navegación. */
 .menu {
   display: flex;
   gap: 1.5rem;
   list-style: none;
 }
 
+/* Apariencia y transición de los enlaces del menú. */
 .menu a {
   color: var(--gris-claro);
   font-size: 0.83rem;
@@ -87,11 +97,13 @@ a {
   transition: color 0.2s ease;
 }
 
+/* Estado interactivo de los enlaces, incluido el acceso mediante teclado. */
 .menu a:hover,
 .menu a:focus-visible {
   color: var(--rojo);
 }
 
+/* Espaciado vertical del contenedor general y de cada sección. */
 .contenedor {
   padding: 4rem 0 5rem;
 }
@@ -102,10 +114,12 @@ a {
   scroll-margin-top: 76px;
 }
 
+/* La última sección no necesita una línea divisoria inferior. */
 .seccion:last-child {
   border-bottom: 0;
 }
 
+/* Portada: imagen a la izquierda y presentación personal a la derecha. */
 .portada {
   align-items: center;
   border-bottom: 0;
@@ -116,6 +130,7 @@ a {
   padding-top: 2rem;
 }
 
+/* Imagen principal con degradado, borde y sombra. */
 .foto {
   align-items: flex-end;
   background:
@@ -131,6 +146,7 @@ a {
   position: relative;
 }
 
+/* Marco interior decorativo de la imagen. */
 .foto::after {
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 8px;
@@ -140,10 +156,12 @@ a {
   position: absolute;
 }
 
+/* La imagen se utiliza como fondo del contenedor. */
 .foto img {
   display: none;
 }
 
+/* Etiqueta destacada sobre la imagen de portada. */
 .etiqueta {
   background: var(--rojo);
   border-radius: 4px;
@@ -157,6 +175,7 @@ a {
   z-index: 1;
 }
 
+/* Jerarquía tipográfica de los títulos. */
 h1,
 h2,
 h3 {
@@ -169,11 +188,13 @@ h1 {
   max-width: 700px;
 }
 
+/* Resalta una parte del título con el color principal. */
 .destacado {
   color: var(--rojo);
   display: block;
 }
 
+/* Título de cada sección con una barra lateral roja. */
 h2 {
   border-left: 4px solid var(--rojo);
   font-size: clamp(1.7rem, 3vw, 2.4rem);
@@ -181,6 +202,7 @@ h2 {
   padding-left: 0.8rem;
 }
 
+/* Subtítulos y texto general. */
 h3 {
   color: var(--blanco);
   font-size: 1.15rem;
@@ -192,6 +214,7 @@ p {
   max-width: 78ch;
 }
 
+/* Texto introductorio de la portada. */
 .intro {
   color: #c6c6c6;
   font-size: 1.08rem;
@@ -206,6 +229,7 @@ em {
   color: #ef7378;
 }
 
+/* Grupo de botones de acción. */
 .botones {
   display: flex;
   flex-wrap: wrap;
@@ -213,6 +237,7 @@ em {
   margin-top: 1.5rem;
 }
 
+/* Botón principal y sus estados interactivos. */
 .boton {
   background: var(--rojo);
   border: 1px solid var(--rojo);
@@ -233,6 +258,7 @@ em {
   transform: translateY(-2px);
 }
 
+/* Variante secundaria del botón, con fondo transparente. */
 .boton.claro {
   background: transparent;
   border-color: #555;
@@ -244,6 +270,7 @@ em {
   color: var(--rojo);
 }
 
+/* Lista de habilidades mostrada como etiquetas. */
 .habilidades {
   display: flex;
   flex-wrap: wrap;
@@ -266,10 +293,12 @@ em {
   color: var(--rojo);
 }
 
+/* Tabla de formación académica u otra información estructurada. */
 .envoltorio {
   overflow-x: auto;
 }
 
+/* Celdas, encabezados y filas alternas de la tabla. */
 .tabla {
   border-collapse: collapse;
   min-width: 650px;
@@ -300,6 +329,7 @@ em {
   background: rgba(255, 255, 255, 0.035);
 }
 
+/* Tarjetas para agrupar experiencia, proyectos o información relacionada. */
 .tarjeta {
   background: linear-gradient(135deg, var(--gris), var(--negro-suave));
   border: 1px solid var(--borde);
@@ -309,6 +339,7 @@ em {
   padding: 1.35rem 1.5rem;
 }
 
+/* Listas sin viñetas dentro de las tarjetas y listas generales. */
 .tarjeta ul,
 .lista {
   color: #cfcfcf;
@@ -326,6 +357,7 @@ em {
   margin-right: 0.55rem;
 }
 
+/* Lista numerada de cursos mediante un contador CSS. */
 .cursos {
   counter-reset: curso;
   list-style: none;
@@ -356,6 +388,7 @@ em {
   width: 2rem;
 }
 
+/* Texto secundario o aclaraciones asociadas a un elemento. */
 .nota {
   color: var(--gris-claro);
   display: block;
@@ -371,6 +404,7 @@ em {
   color: var(--blanco);
 }
 
+/* Botón flotante para volver al inicio. */
 .subir {
   align-items: center;
   background: var(--rojo);
@@ -390,6 +424,7 @@ em {
   background: var(--rojo-oscuro);
 }
 
+/* Pie de página. */
 .pie {
   background: var(--negro-suave);
   border-top: 1px solid var(--borde);
@@ -403,6 +438,7 @@ em {
   margin: 0 auto;
 }
 
+/* Adaptación del diseño para pantallas pequeñas. */
 @media (max-width: 700px) {
   .barra,
   .contenedor {
@@ -436,6 +472,7 @@ em {
   }
 }
 
+/* Reduce las animaciones para usuarios que lo solicitan en su sistema. */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
