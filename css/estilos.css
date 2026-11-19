@@ -16,4 +16,489 @@
 
 html {
     scroll-behavior: smooth;
+@charset "UTF-8";
+
+/* Colores y valores reutilizables de todo el sitio. */
+:root {
+  --negro: #080808;
+  --negro-suave: #111111;
+  --gris: #1d1d1d;
+  --gris-claro: #a7a7a7;
+  --blanco: #f7f7f5;
+  --rojo: #e51b23;
+  --rojo-oscuro: #a80f18;
+  --borde: rgba(255, 255, 255, 0.1);
+  --sombra: 0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+/* Normalización básica para mantener un modelo de caja consistente. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Estilos generales de la página y fondo principal. */
+body {
+  background:
+    radial-gradient(circle at 85% 4%, rgba(229, 27, 35, 0.11), transparent 25rem),
+    var(--negro);
+  color: var(--blanco);
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Encabezado fijo con efecto de transparencia y desenfoque. */
+.encabezado {
+  background: rgba(8, 8, 8, 0.9);
+  border-bottom: 1px solid var(--borde);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(14px);
+}
+
+/* Ancho máximo compartido por la barra de navegación y el contenido. */
+.barra,
+.contenedor {
+  margin: 0 auto;
+  max-width: 1120px;
+  width: calc(100% - 3rem);
+}
+
+/* Distribución horizontal de la marca y el menú. */
+.barra {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  min-height: 76px;
+}
+
+/* Nombre o marca del portafolio. */
+.marca {
+  color: var(--blanco);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+/* Línea decorativa que precede a la marca. */
+.marca::before {
+  color: var(--rojo);
+  content: "/";
+  margin-right: 0.35rem;
+}
+
+/* Enlaces de navegación. */
+.menu {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+/* Apariencia y transición de los enlaces del menú. */
+.menu a {
+  color: var(--gris-claro);
+  font-size: 0.83rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+/* Estado interactivo de los enlaces, incluido el acceso mediante teclado. */
+.menu a:hover,
+.menu a:focus-visible {
+  color: var(--rojo);
+}
+
+/* Espaciado vertical del contenedor general y de cada sección. */
+.contenedor {
+  padding: 4rem 0 5rem;
+}
+
+.seccion {
+  border-bottom: 1px solid var(--borde);
+  padding: 4rem 0;
+  scroll-margin-top: 76px;
+}
+
+/* La última sección no necesita una línea divisoria inferior. */
+.seccion:last-child {
+  border-bottom: 0;
+}
+
+/* Portada: imagen a la izquierda y presentación personal a la derecha. */
+.portada {
+  align-items: center;
+  border-bottom: 0;
+  display: grid;
+  gap: clamp(2.5rem, 7vw, 6rem);
+  grid-template-columns: minmax(230px, 0.75fr) 1.25fr;
+  min-height: 520px;
+  padding-top: 2rem;
+}
+
+/* Imagen principal con degradado, borde y sombra. */
+.foto {
+  align-items: flex-end;
+  background:
+    linear-gradient(180deg, transparent 55%, rgba(8, 8, 8, 0.85)),
+    url("../imagen/FOTO%20TRAJE%20FORMAL.jpg") center 24% / cover no-repeat;
+  border: 1px solid rgba(229, 27, 35, 0.65);
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+  display: flex;
+  min-height: 420px;
+  overflow: hidden;
+  padding: 1.25rem;
+  position: relative;
+}
+
+/* Marco interior decorativo de la imagen. */
+.foto::after {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  content: "";
+  inset: 10px;
+  pointer-events: none;
+  position: absolute;
+}
+
+/* La imagen se utiliza como fondo del contenedor. */
+.foto img {
+  display: none;
+}
+
+/* Etiqueta destacada sobre la imagen de portada. */
+.etiqueta {
+  background: var(--rojo);
+  border-radius: 4px;
+  color: var(--blanco);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 0.45rem 0.7rem;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+/* Jerarquía tipográfica de los títulos. */
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  letter-spacing: -0.05em;
+  max-width: 700px;
+}
+
+/* Resalta una parte del título con el color principal. */
+.destacado {
+  color: var(--rojo);
+  display: block;
+}
+
+/* Título de cada sección con una barra lateral roja. */
+h2 {
+  border-left: 4px solid var(--rojo);
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  margin-bottom: 1.5rem;
+  padding-left: 0.8rem;
+}
+
+/* Subtítulos y texto general. */
+h3 {
+  color: var(--blanco);
+  font-size: 1.15rem;
+  margin-bottom: 0.7rem;
+}
+
+p {
+  color: #d3d3d3;
+  max-width: 78ch;
+}
+
+/* Texto introductorio de la portada. */
+.intro {
+  color: #c6c6c6;
+  font-size: 1.08rem;
+  margin: 1.5rem 0 2rem;
+}
+
+strong {
+  color: var(--blanco);
+}
+
+em {
+  color: #ef7378;
+}
+
+/* Grupo de botones de acción. */
+.botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+/* Botón principal y sus estados interactivos. */
+.boton {
+  background: var(--rojo);
+  border: 1px solid var(--rojo);
+  border-radius: 5px;
+  color: var(--blanco);
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 0.75rem 1.15rem;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.boton:hover,
+.boton:focus-visible {
+  background: var(--rojo-oscuro);
+  border-color: var(--rojo-oscuro);
+  transform: translateY(-2px);
+}
+
+/* Variante secundaria del botón, con fondo transparente. */
+.boton.claro {
+  background: transparent;
+  border-color: #555;
+}
+
+.boton.claro:hover,
+.boton.claro:focus-visible {
+  border-color: var(--rojo);
+  color: var(--rojo);
+}
+
+/* Lista de habilidades mostrada como etiquetas. */
+.habilidades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  list-style: none;
+}
+
+.habilidades li {
+  background: var(--gris);
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  color: #e3e3e3;
+  font-size: 0.9rem;
+  padding: 0.45rem 0.9rem;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.habilidades li:hover {
+  border-color: var(--rojo);
+  color: var(--rojo);
+}
+
+/* Tabla de formación académica u otra información estructurada. */
+.envoltorio {
+  overflow-x: auto;
+}
+
+/* Celdas, encabezados y filas alternas de la tabla. */
+.tabla {
+  border-collapse: collapse;
+  min-width: 650px;
+  width: 100%;
+}
+
+.tabla th,
+.tabla td {
+  border-bottom: 1px solid var(--borde);
+  padding: 1rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.tabla th {
+  background: var(--rojo);
+  color: var(--blanco);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tabla td {
+  color: #cfcfcf;
+}
+
+.tabla tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+/* Tarjetas para agrupar experiencia, proyectos o información relacionada. */
+.tarjeta {
+  background: linear-gradient(135deg, var(--gris), var(--negro-suave));
+  border: 1px solid var(--borde);
+  border-left: 3px solid var(--rojo);
+  border-radius: 6px;
+  margin-top: 1.2rem;
+  padding: 1.35rem 1.5rem;
+}
+
+/* Listas sin viñetas dentro de las tarjetas y listas generales. */
+.tarjeta ul,
+.lista {
+  color: #cfcfcf;
+  list-style: none;
+}
+
+.tarjeta li,
+.lista li {
+  margin: 0.35rem 0;
+}
+
+.tarjeta li::before {
+  color: var(--rojo);
+  content: "▸";
+  margin-right: 0.55rem;
+}
+
+/* Lista numerada de cursos mediante un contador CSS. */
+.cursos {
+  counter-reset: curso;
+  list-style: none;
+}
+
+.cursos li {
+  border-bottom: 1px solid var(--borde);
+  color: #d7d7d7;
+  counter-increment: curso;
+  padding: 1rem 0 1rem 3.2rem;
+  position: relative;
+}
+
+.cursos li::before {
+  align-items: center;
+  background: var(--rojo);
+  border-radius: 50%;
+  color: var(--blanco);
+  content: counter(curso, decimal-leading-zero);
+  display: flex;
+  font-size: 0.72rem;
+  font-weight: 800;
+  height: 2rem;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0.75rem;
+  width: 2rem;
+}
+
+/* Texto secundario o aclaraciones asociadas a un elemento. */
+.nota {
+  color: var(--gris-claro);
+  display: block;
+  font-size: 0.86rem;
+}
+
+.lista a {
+  color: #f06a70;
+  transition: color 0.2s ease;
+}
+
+.lista a:hover {
+  color: var(--blanco);
+}
+
+/* Botón flotante para volver al inicio. */
+.subir {
+  align-items: center;
+  background: var(--rojo);
+  border-radius: 50%;
+  bottom: 1.5rem;
+  display: flex;
+  font-size: 1.3rem;
+  height: 2.7rem;
+  justify-content: center;
+  position: fixed;
+  right: 1.5rem;
+  width: 2.7rem;
+  z-index: 5;
+}
+
+.subir:hover {
+  background: var(--rojo-oscuro);
+}
+
+/* Pie de página. */
+.pie {
+  background: var(--negro-suave);
+  border-top: 1px solid var(--borde);
+  color: var(--gris-claro);
+  font-size: 0.82rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.pie p {
+  margin: 0 auto;
+}
+
+/* Adaptación del diseño para pantallas pequeñas. */
+@media (max-width: 700px) {
+  .barra,
+  .contenedor {
+    width: calc(100% - 2rem);
+  }
+
+  .barra {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.65rem;
+    padding: 1rem 0;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+  }
+
+  .portada {
+    grid-template-columns: 1fr;
+    padding-top: 1rem;
+  }
+
+  .foto {
+    min-height: 360px;
+    max-width: 360px;
+  }
+
+  .seccion {
+    padding: 3rem 0;
+  }
+}
+
+/* Reduce las animaciones para usuarios que lo solicitan en su sistema. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
 }
