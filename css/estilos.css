@@ -1,25 +1,8 @@
-.subir {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.subir.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.menu a.activo {
-    color: #007bff;
-    font-weight: bold;
-}
-
-html {
-    scroll-behavior: smooth;
 @charset "UTF-8";
 
 /* Colores y valores reutilizables de todo el sitio. */
 :root {
+  color-scheme: dark;
   --negro: #080808;
   --negro-suave: #111111;
   --gris: #1d1d1d;
