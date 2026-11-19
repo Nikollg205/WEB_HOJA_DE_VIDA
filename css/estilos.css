@@ -2,7 +2,7 @@
 
 /* Colores y valores reutilizables de todo el sitio. */
 :root {
-  color-scheme: dark;
+  color-scheme: dark;/* Mantiene el oscuridad por defecto */
   --negro: #080808;
   --negro-suave: #111111;
   --gris: #1d1d1d;
